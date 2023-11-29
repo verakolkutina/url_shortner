@@ -1,4 +1,4 @@
-package com.example.url.Controller;
+package com.example.url.controller;
 
 import com.example.url.model.Url;
 import com.example.url.model.UrlDto;

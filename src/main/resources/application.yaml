@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jpa:mysql://localhost:3306/Url
+    username: root
+    password: Lider77@
+
+
+
+  cloud:
+    config:
+
+      enabled: false
+
+
+  main:
+    banner-mode: off
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+
+
+

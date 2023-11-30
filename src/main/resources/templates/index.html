@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+
+<h2>URL Shortener</h2>
+
+<form action="/api/generate" method="post" th:action="@{/api/generate}" th:object="${urlDto}">
+    <label for="originalUrl">Original URL:</label>
+    <input type="text"
+           id="originalUrl"
+           name="originalUrl"
+           required>
+
+    <label for="expirationDate">Expiration Date:</label>
+    <input id="expirationDate" name="expirationDate" placeholder="YYYY-MM-DD HH:mm:ss"
+           type="text">
+
+    <button type="submit">Generate Short Link</button>
+</form>
+
+
+
+<div th:if="${urlResponseDto != null}">
+    <h3>Short Link Details:</h3>
+    <p th:text="'Original URL: ' + ${urlResponseDto.originalUrl}"></p>
+    <p th:text="'Short Link: ' + ${urlResponseDto.shortLink}"></p>
+    <p th:text="'Expiration Date: ' + ${urlResponseDto.expirationDate}"></p>
+</div>
+
+<div th:if="${urlErrorResponseDto != null}">
+    <h3>Error Details:</h3>
+    <p th:text="'Status: ' + ${urlErrorResponseDto.status}"></p>
+    <p th:text="'Error: ' + ${urlErrorResponseDto.error}"></p>
+</div>
+
+</body>
+</html>
+<!--
+Ошибка 404 обычно означает, что ресурс,
+который вы пытаетесь запросить, не найден.
+В вашем случае, возможно, проблема связана
+с отсутствием маппинга для URL /generate
+в вашем контроллере.
+
+
+-->

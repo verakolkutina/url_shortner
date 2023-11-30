@@ -4,8 +4,6 @@ spring:
     username: root
     password: Lider77@
 
-
-
   cloud:
     config:
 
@@ -20,5 +18,7 @@ spring:
     hibernate:
       ddl-auto: none
 
-
+  security:
+    basic:
+     enabled: false
 

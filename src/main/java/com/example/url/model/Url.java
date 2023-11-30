@@ -1,9 +1,6 @@
 package com.example.url.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -13,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Url {
     @Id
-    @GeneratedValue
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Lob
